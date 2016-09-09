@@ -15,8 +15,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        let tableVC = TableViewController()
+        tableVC.title = "All Contacts"
+        let navi = UINavigationController(rootViewController: tableVC)
+        
+        
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.blackColor(),NSFontAttributeName: (UIFont.boldSystemFontOfSize(25))]
+        
+        //UINavigationBar.appearance().tintColor = UIColor.blackColor()
+        
+        //UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.Default
+        self.window?.rootViewController = navi
+        self.window?.makeKeyAndVisible()
         return true
+
     }
 
     func applicationWillResignActive(application: UIApplication) {
